@@ -23,7 +23,7 @@
 
     <uses-sdk
         android:minSdkVersion="14"
-        android:targetSdkVersion="22" />
+        android:targetSdkVersion="19" />
 
     <permission
         android:name="org.tint.permissions.bookmarksprovider.READ"

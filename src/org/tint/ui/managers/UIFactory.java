@@ -78,7 +78,7 @@ public class UIFactory {
 		}
 	}
 	
-	public static UIManager createUIManager(TintBrowserActivity activity) {
+	public static UIManager createUIManager(BrowserActivity activity) {
 		checkInit(activity);
 		
 		switch (sUIType) {

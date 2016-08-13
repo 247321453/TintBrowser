@@ -70,7 +70,7 @@ public class PhoneUIManager extends BasePhoneUIManager {
 		sAnimationType = AnimationType.NONE;
 	}
 	
-	public PhoneUIManager(TintBrowserActivity activity) {
+	public PhoneUIManager(BrowserActivity activity) {
 		super(activity);		
 		
 		mPreferences = PreferenceManager.getDefaultSharedPreferences(activity);

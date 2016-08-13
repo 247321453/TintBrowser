@@ -92,7 +92,7 @@ public class LegacyPhoneUIManager extends BasePhoneUIManager {
 		sAnimationType = AnimationType.FADE;
 	}
 	
-	public LegacyPhoneUIManager(TintBrowserActivity activity) {
+	public LegacyPhoneUIManager(BrowserActivity activity) {
 		super(activity);
 		
 		updateSwitchTabsMethod();

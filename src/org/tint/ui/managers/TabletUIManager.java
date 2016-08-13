@@ -56,7 +56,7 @@ public class TabletUIManager extends BaseUIManager {
 	private ProgressBar mProgressBar;
 	private ImageView mExitFullScreen;
 	
-	public TabletUIManager(TintBrowserActivity activity) {
+	public TabletUIManager(BrowserActivity activity) {
 		super(activity);
 		
 		mTabs = new Hashtable<Tab, TabletWebViewFragment>();

@@ -81,7 +81,7 @@ public abstract class BaseUIManager implements UIManager {//, WebViewFragmentLis
     
     private GeolocationPermissionsDialog mGeolocationPermissionsDialog;
 	
-	protected TintBrowserActivity mActivity;	
+	protected BrowserActivity mActivity;	
 	protected ActionBar mActionBar;
 	protected FragmentManager mFragmentManager;
 	
@@ -95,7 +95,7 @@ public abstract class BaseUIManager implements UIManager {//, WebViewFragmentLis
 	
 	private Handler mHandler;
 	
-	public BaseUIManager(TintBrowserActivity activity) {
+	public BaseUIManager(BrowserActivity activity) {
 		mActivity = activity;
 		
 		mActionBar = mActivity.getActionBar();
@@ -135,7 +135,7 @@ public abstract class BaseUIManager implements UIManager {//, WebViewFragmentLis
 	}
 	
 	@Override
-	public TintBrowserActivity getMainActivity() {
+	public BrowserActivity getMainActivity() {
 		return mActivity;
 	}
 	

@@ -17,7 +17,6 @@ package org.tint.ui.managers;
 
 import java.util.UUID;
 
-import org.tint.ui.activities.TintBrowserActivity;
 import org.tint.ui.components.CustomWebView;
 import org.tint.ui.fragments.BaseWebViewFragment;
 
@@ -28,14 +27,14 @@ import android.net.Uri;
 import android.view.ActionMode;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
 import android.webkit.GeolocationPermissions.Callback;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient.CustomViewCallback;
+import android.webkit.WebView;
 
 public interface UIManager extends OnTouchListener {
 	
-	TintBrowserActivity getMainActivity();
+	BrowserActivity getMainActivity();
 	
 	/**
 	 * Browser management.	

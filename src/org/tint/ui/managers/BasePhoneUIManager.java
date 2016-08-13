@@ -66,7 +66,7 @@ public abstract class BasePhoneUIManager extends BaseUIManager {
 	
 	protected ActionMode mActionMode;
 	
-	public BasePhoneUIManager(TintBrowserActivity activity) {
+	public BasePhoneUIManager(BrowserActivity activity) {
 		super(activity);
 		
 		mFragmentsList = new ArrayList<PhoneWebViewFragment>();

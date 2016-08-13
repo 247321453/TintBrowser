@@ -27,6 +27,7 @@ import org.tint.providers.BookmarksWrapper;
 import org.tint.ui.components.CustomWebView;
 import org.tint.ui.dialogs.YesNoRememberDialog;
 import org.tint.ui.fragments.BaseWebViewFragment;
+import org.tint.ui.managers.BrowserActivity;
 import org.tint.ui.managers.UIFactory;
 import org.tint.ui.managers.UIManager;
 import org.tint.ui.preferences.PreferencesActivity;
@@ -34,7 +35,6 @@ import org.tint.utils.ApplicationUtils;
 import org.tint.utils.Constants;
 
 import android.app.ActionBar.OnMenuVisibilityListener;
-import android.app.Activity;
 import android.app.DownloadManager;
 import android.app.DownloadManager.Query;
 import android.app.Notification;
@@ -61,19 +61,8 @@ import android.view.View.OnClickListener;
 import android.webkit.WebIconDatabase;
 import android.widget.Toast;
 
-public class TintBrowserActivity extends Activity {
+public class TintBrowserActivity extends BrowserActivity {
     
-	public static final int ACTIVITY_BOOKMARKS = 0;
-	public static final int ACTIVITY_OPEN_FILE_CHOOSER = 1;
-	
-	public static final int CONTEXT_MENU_OPEN = Menu.FIRST + 10;
-	public static final int CONTEXT_MENU_OPEN_IN_NEW_TAB = Menu.FIRST + 11;
-	public static final int CONTEXT_MENU_OPEN_IN_BACKGROUND = Menu.FIRST + 12;
-	public static final int CONTEXT_MENU_DOWNLOAD = Menu.FIRST + 13;
-	public static final int CONTEXT_MENU_COPY = Menu.FIRST + 14;
-	public static final int CONTEXT_MENU_SEND_MAIL = Menu.FIRST + 15;
-	public static final int CONTEXT_MENU_SHARE = Menu.FIRST + 16;
-	
 	private OnSharedPreferenceChangeListener mPreferenceChangeListener;
 	
 	private UIManager mUIManager;
