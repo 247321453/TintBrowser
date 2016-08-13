@@ -44,7 +44,7 @@ public class Constants {
 	/**
 	 * User agents
 	 */
-	public static final String USER_AGENT_ANDROID = "";
+	public static final String USER_AGENT_ANDROID = "Mozilla/5.0 (Linux; U; Android 4.4.4; zh-cn; 2014813 Build/KTU84P) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/46.0.2490.85 Mobile Safari/537.36 XiaoMi/MiuiBrowser/8.1.2";
 	public static final String USER_AGENT_DESKTOP = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.34 Safari/534.24";
 	
 	/**

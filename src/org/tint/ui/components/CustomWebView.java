@@ -41,6 +41,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -51,6 +52,7 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.DownloadListener;
 import android.webkit.WebSettings;
+import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebSettings.PluginState;
 import android.webkit.WebView;
 import android.widget.Toast;
@@ -161,7 +163,7 @@ public class CustomWebView extends WebView implements DownloadListener, Download
 		mUIManager.onClientPageFinished(this, url);
 	}
 	
-	@SuppressLint("SetJavaScriptEnabled")
+	@SuppressLint({ "SetJavaScriptEnabled", "NewApi" })
 	public void loadSettings() {
 		WebSettings settings = getSettings();
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());		
@@ -191,14 +193,14 @@ public class CustomWebView extends WebView implements DownloadListener, Download
 		}
 		
 		settings.setUserAgentString(prefs.getString(Constants.PREFERENCE_USER_AGENT, Constants.USER_AGENT_ANDROID));		
-		settings.setPluginState(PluginState.valueOf(prefs.getString(Constants.PREFERENCE_PLUGINS, PluginState.ON_DEMAND.toString())));
+		settings.setPluginState(PluginState.valueOf(prefs.getString(Constants.PREFERENCE_PLUGINS, PluginState.ON.toString())));
 		
 		CookieManager.getInstance().setAcceptCookie(prefs.getBoolean(Constants.PREFERENCE_ACCEPT_COOKIES, true));
 		
 		settings.setSupportZoom(true);
 		settings.setDisplayZoomControls(false);
 		settings.setBuiltInZoomControls(true);
-		settings.setSupportMultipleWindows(true);
+		settings.setSupportMultipleWindows(false);
 		settings.setEnableSmoothTransition(true);
 		
 		if (mPrivateBrowsing) {
@@ -220,6 +222,61 @@ public class CustomWebView extends WebView implements DownloadListener, Download
 			settings.setAppCachePath(mContext.getDir("appcache", 0).getPath());
 			settings.setDatabasePath(mContext.getDir("databases", 0).getPath());
 			settings.setGeolocationDatabasePath(mContext.getDir("geolocation", 0).getPath());
+		}
+//		getSettings().setGeolocationEnabled(true);
+//		getSettings().setUseWideViewPort(true);
+//		getSettings().setLoadWithOverviewMode(true);
+//		getSettings().setPluginState(PluginState.ON_DEMAND);
+//		getSettings().setLayoutAlgorithm(LayoutAlgorithm.NORMAL);
+//		// getSettings().setDefaultTextEncodingName("UTF-8");
+//		getSettings().setJavaScriptEnabled(true);
+//		getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+//		setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+//		setHorizontalScrollBarEnabled(false);
+//		getSettings().setDomStorageEnabled(true);
+//		getSettings().setSupportZoom(true);
+//		getSettings().setBuiltInZoomControls(true);
+//		setHorizontalScrollbarOverlay(true);
+//		getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+		
+		getSettings().setJavaScriptEnabled(true);
+		getSettings().setLoadsImagesAutomatically(true);
+		getSettings().setUseWideViewPort(true);
+		getSettings().setLoadWithOverviewMode(true);
+		getSettings().setGeolocationEnabled(true);
+		getSettings().setPluginState(PluginState.ON_DEMAND);
+		getSettings().setSaveFormData(true);
+		getSettings().setSavePassword(true);
+//		setWebSettingsProperty(getSettings(), "inverted", "false");
+		getSettings().setSupportZoom(true);
+		getSettings().setDisplayZoomControls(false);
+		getSettings().setBuiltInZoomControls(true);
+		getSettings().setSupportMultipleWindows(false);
+		getSettings().setEnableSmoothTransition(true);
+		// HTML5 API flags
+		getSettings().setAppCacheEnabled(true);
+		getSettings().setDatabaseEnabled(true);
+		getSettings().setDomStorageEnabled(true);
+
+		// HTML5 configuration settings.
+		getSettings().setAppCacheMaxSize(10 * 1024 * 1024);
+		getSettings().setAppCachePath(mContext.getDir("appcache", Context.MODE_PRIVATE).getPath());
+		getSettings().setDatabasePath(mContext.getDir("databases", Context.MODE_PRIVATE).getPath());
+		getSettings().setGeolocationDatabasePath(mContext.getDir("geolocation", 0).getPath());
+		
+		//
+		getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+		setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+		setHorizontalScrollBarEnabled(false);
+		setHorizontalScrollbarOverlay(true);
+		
+	//	getSettings().setAllowContentAccess(true);
+	//	getSettings().setAllowFileAccess(true);
+
+		CookieManager.getInstance().setAcceptCookie(true);
+		CookieManager.setAcceptFileSchemeCookies(true);
+		if (Build.VERSION.SDK_INT >= 21) {
+			CookieManager.getInstance().setAcceptThirdPartyCookies(this, true);
 		}
 		
 		setLongClickable(true);

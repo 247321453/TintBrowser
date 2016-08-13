@@ -26,6 +26,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -230,9 +231,8 @@ public class CustomWebChromeClient extends WebChromeClient {
 	@Override
 	public void onShowCustomView(View view, CustomViewCallback callback) {		
 		super.onShowCustomView(view, callback);
-		mUIManager.onShowCustomView(view, -1, callback);
+		mUIManager.onShowCustomView(view, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE, callback);
 	}
-	
 	@Override
 	public void onGeolocationPermissionsShowPrompt(String origin, Callback callback) {
 		mUIManager.onGeolocationPermissionsShowPrompt(origin, callback);

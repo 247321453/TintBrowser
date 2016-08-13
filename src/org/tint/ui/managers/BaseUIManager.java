@@ -42,6 +42,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Picture;
 import android.graphics.drawable.BitmapDrawable;
