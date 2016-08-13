@@ -70,21 +70,27 @@ public class CustomWebView extends WebView implements DownloadListener, Download
 	private static Method sWebSettingsSetProperty = null;
 	
 	public CustomWebView(UIManager uiManager, boolean privateBrowsing) {
-		this(uiManager.getMainActivity(), null, privateBrowsing);
+		super(uiManager.getMainActivity());
+		mContext = uiManager.getMainActivity();
 		mUIManager = uiManager;
+		setPrivateBrowsing(privateBrowsing);
 	}
 	
 	// Used only by edit mode (UI designer)
 	public CustomWebView(Context context, AttributeSet attrs) {
-		super(context, attrs, android.R.attr.webViewStyle);
+		super(context, attrs);
 		mContext = context;
+		setPrivateBrowsing(false);
 	}
 	
 	public CustomWebView(Context context, AttributeSet attrs, boolean privateBrowsing) {
-		super(context, attrs, android.R.attr.webViewStyle);
-		mPrivateBrowsing = privateBrowsing;
-		
+		super(context, attrs);
 		mContext = context;
+		setPrivateBrowsing(privateBrowsing);
+	}
+	
+	private void setPrivateBrowsing(boolean privateBrowsing){
+		mPrivateBrowsing = privateBrowsing;
 		
 		if (!isInEditMode()) {
 			
